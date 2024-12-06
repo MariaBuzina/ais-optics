@@ -98,6 +98,12 @@
     <Compile Include="AuthorizationForm.Designer.cs">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdleTimeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdleTimeForm.Designer.cs">
+      <DependentUpon>IdleTimeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewForms\ClientsViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     <EmbeddedResource Include="AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IdleTimeForm.resx">
+      <DependentUpon>IdleTimeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewForms\ClientsViewForm.resx">
       <DependentUpon>ClientsViewForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,11 +282,13 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>
   <ItemGroup>

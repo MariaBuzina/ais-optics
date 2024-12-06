@@ -13,9 +13,36 @@ namespace Optics
 {
     public partial class ClientsViewForm : Form
     {
+        private Timer idleTimer;
+        private int idleTimeout;
+
         public ClientsViewForm()
         {
             InitializeComponent();
+            int.TryParse(Properties.Settings.Default["timeout"].ToString(), out idleTimeout);
+            idleTimer = new Timer();
+            idleTimer.Interval = idleTimeout * 1000; 
+            idleTimer.Tick += IdleTimer_Tick;
+
+            this.MouseMove += new MouseEventHandler(UserActivity);
+            this.KeyPress += new KeyPressEventHandler(UserActivity);
+
+            idleTimer.Start();
+        }
+
+        private void UserActivity(object sender, EventArgs e)
+        {
+            idleTimer.Stop();
+            idleTimer.Start();
+        }
+
+        private void IdleTimer_Tick(object sender, EventArgs e)
+        {
+            idleTimer.Stop();
+            AuthorizationForm authorizationForm = new AuthorizationForm();
+            this.Visible = false;
+            authorizationForm.ShowDialog();
+            this.Close();
         }
 
         private void ClientsViewForm_Load(object sender, EventArgs e)
