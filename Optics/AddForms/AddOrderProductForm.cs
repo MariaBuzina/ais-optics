@@ -71,6 +71,10 @@ namespace Optics
             this.Close();
         }
 
+        int allPages = 1;
+        int limitPages = 20;
+        int currentPage = 1;
+        int allRecords = 0;
         public void FillDataGridView(string cmd = "")
         {
             dataGridView1.Columns.Clear();
@@ -108,6 +112,14 @@ namespace Optics
 
             MySqlConnection connection = new MySqlConnection(Connection.conn);
             connection.Open();
+
+            MySqlCommand mySqlCommand = new MySqlCommand("SELECT COUNT(*) FROM product", connection);
+            allRecords = Convert.ToInt32(mySqlCommand.ExecuteScalar());
+            allPages = (int)Math.Ceiling(allRecords / (double)limitPages);
+
+            int offset = (currentPage - 1) * limitPages;
+            com += $" LIMIT {limitPages} OFFSET {offset}";
+
             MySqlCommand command = new MySqlCommand(com, connection);
             command.ExecuteNonQuery();
 
@@ -119,7 +131,6 @@ namespace Optics
             table.Columns["ProductCategoryName"].ColumnName = "Категория";
             table.Columns["ProductManufacturer"].ColumnName = "Производитель";
             table.Columns["ProductCost"].ColumnName = "Цена";
-            table.Columns["ProductDiscountAmount"].ColumnName = "Скидка";
             table.Columns["ProductQuantityInStock"].ColumnName = "Количество";
 
             dataGridView1.DataSource = table;
@@ -130,6 +141,7 @@ namespace Optics
             dataGridView1.Columns["ProductDescription"].Visible = false;
             dataGridView1.Columns["ProductCategory"].Visible = false;
             dataGridView1.Columns["ProductPhoto"].Visible = false;
+            dataGridView1.Columns["ProductDiscountAmount"].Visible = false;
 
             DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
             imageColumn.Name = "Фото";
@@ -137,7 +149,6 @@ namespace Optics
 
             dataGridView1.Columns.Add(imageColumn);
             dataGridView1.AllowUserToAddRows = false;
-
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -160,6 +171,13 @@ namespace Optics
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
             connection.Close();
+            UpdatePagination();
+        }
+
+        private void UpdatePagination()
+        {
+            label4.Text = $"{dataGridView1.Rows.Count}/{allRecords}";
+            pictureBox2.Visible = currentPage < allPages;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -280,6 +298,24 @@ namespace Optics
 
             ViewProductForm viewProductForm = new ViewProductForm(ProductArticleNumber);
             viewProductForm.ShowDialog();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (currentPage < allPages)
+            {
+                currentPage++;
+                FillDataGridView();
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                FillDataGridView();
+            }
         }
     }
 }

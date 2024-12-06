@@ -75,7 +75,7 @@ namespace Optics
             this.textBox1.Location = new System.Drawing.Point(50, 12);
             this.textBox1.MaxLength = 100;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(859, 34);
+            this.textBox1.Size = new System.Drawing.Size(859, 41);
             this.textBox1.TabIndex = 15;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -88,7 +88,7 @@ namespace Optics
             "По убыванию"});
             this.comboBox1.Location = new System.Drawing.Point(219, 50);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(199, 36);
+            this.comboBox1.Size = new System.Drawing.Size(199, 43);
             this.comboBox1.TabIndex = 17;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -98,7 +98,7 @@ namespace Optics
             this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
             this.label1.Location = new System.Drawing.Point(613, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 28);
+            this.label1.Size = new System.Drawing.Size(117, 35);
             this.label1.TabIndex = 20;
             this.label1.Text = "Фильтры";
             // 
@@ -111,7 +111,7 @@ namespace Optics
             "По убыванию"});
             this.comboBox2.Location = new System.Drawing.Point(710, 52);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(199, 36);
+            this.comboBox2.Size = new System.Drawing.Size(199, 43);
             this.comboBox2.TabIndex = 21;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -124,7 +124,7 @@ namespace Optics
             "По убыванию"});
             this.comboBox3.Location = new System.Drawing.Point(14, 50);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(199, 36);
+            this.comboBox3.Size = new System.Drawing.Size(199, 43);
             this.comboBox3.TabIndex = 22;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
@@ -228,6 +228,7 @@ namespace Optics
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 27;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox3
             // 
@@ -238,19 +239,20 @@ namespace Optics
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 28;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(844, 443);
+            this.label4.Location = new System.Drawing.Point(425, 489);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 28);
+            this.label4.Size = new System.Drawing.Size(77, 35);
             this.label4.TabIndex = 29;
             this.label4.Text = "30/50";
             // 
             // AddOrderProductForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 35F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(924, 540);
