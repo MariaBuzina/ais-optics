@@ -75,6 +75,11 @@ namespace Optics
         int limitPages = 20;
         int currentPage = 1;
         int allRecords = 0;
+
+        /// <summary>
+        /// Заполнение данными datagridview
+        /// </summary>
+        /// <param name="cmd">SQl запрос</param>
         public void FillDataGridView(string cmd = "")
         {
             dataGridView1.Columns.Clear();
