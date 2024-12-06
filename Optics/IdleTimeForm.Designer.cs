@@ -54,9 +54,9 @@ namespace Optics
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(247, 28);
+            this.label1.Size = new System.Drawing.Size(303, 35);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Время бездействия (мин.)";
+            this.label1.Text = "Время бездействия (сек.)";
             // 
             // button1
             // 
@@ -83,13 +83,13 @@ namespace Optics
             this.textBox1.Location = new System.Drawing.Point(261, 33);
             this.textBox1.MaxLength = 5;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(292, 34);
+            this.textBox1.Size = new System.Drawing.Size(292, 41);
             this.textBox1.TabIndex = 71;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // IdleTimeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 35F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(565, 173);
