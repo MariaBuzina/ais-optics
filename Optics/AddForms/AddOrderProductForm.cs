@@ -305,6 +305,11 @@ namespace Optics
             viewProductForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Картинка для перехода на следующую страницу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             if (currentPage < allPages)
@@ -314,6 +319,11 @@ namespace Optics
             }
         }
 
+        /// <summary>
+        /// Картинка для перехода на предыдущую страницу
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             if (currentPage > 1)
