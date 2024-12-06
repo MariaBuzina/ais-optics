@@ -61,6 +61,8 @@ namespace Optics
             FillProductCategory();
             FillFiltr();
             FillSort();
+            Pagination();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -120,7 +122,7 @@ namespace Optics
 
             MySqlCommand mySqlCommand = new MySqlCommand("SELECT COUNT(*) FROM product", connection);
             allRecords = Convert.ToInt32(mySqlCommand.ExecuteScalar());
-            allPages = (int)Math.Ceiling(allRecords / (double)limitPages);
+            allPages = (int)Math.Ceiling((double)allRecords / limitPages);
 
             int offset = (currentPage - 1) * limitPages;
             com += $" LIMIT {limitPages} OFFSET {offset}";
@@ -176,6 +178,7 @@ namespace Optics
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
             connection.Close();
+
             UpdatePagination();
         }
 
@@ -330,6 +333,75 @@ namespace Optics
             {
                 currentPage--;
                 FillDataGridView();
+            }
+        }
+
+        void Pagination()
+        {
+            // удаляем LinkLabel служащий для пагинации
+            // каждый раз будем создавать новую пагинацию
+            for (int j = 0, count = this.Controls.Count; j < count; ++j)
+            {
+                this.Controls.RemoveByKey("page" + j);
+            }
+
+            // узнаём сколько страниц будет
+            int size = allRecords / 20; // на каждой странице по 20 зиписей
+            if (Convert.ToBoolean(allRecords % 20)) size += 1; // ситуакиця когда при делении получаем не целое число
+            LinkLabel[] ll = new LinkLabel[size]; // пагинация на основе элемента ссылка(можно использовать и другой элемент)
+            int x = 450, y = 450, step = 30; // место на форме для меню пагинации и расстояние между номерами страниц
+
+            for (int i = 0; i < size; ++i)
+            {
+                ll[i] = new LinkLabel();
+                ll[i].Text = Convert.ToString(i + 1); // текст(номер старницы) который видет пользователь
+                ll[i].Name = "page" + i;
+                ll[i].AutoSize = true; //!!!
+                ll[i].Location = new Point(x, y);
+                ll[i].Click += new EventHandler(LinkLabel_Click); // один обработчик для всех пунктов пагинации
+                this.Controls.Add(ll[i]); // добавление на форму
+
+                x += step;
+            }
+
+            // чтобы понять на какой странице пользователь убираем подчеркивание для активной странице
+            // по умолчанию первая страница активна
+            ll[0].LinkBehavior = LinkBehavior.NeverUnderline;
+        }
+
+        private void LinkLabel_Click(object sender, EventArgs e)
+        {
+            // возвращаем всем LinkLabel подчеркивание
+            foreach (var ctrl in this.Controls)
+            {
+                if (ctrl is LinkLabel)
+                {
+                    (ctrl as LinkLabel).LinkBehavior = LinkBehavior.AlwaysUnderline;
+                }
+            }
+
+            // узнаём какая страница выбрана и убираем подчеркивание для неё
+            LinkLabel l = sender as LinkLabel;
+            l.LinkBehavior = LinkBehavior.NeverUnderline;
+
+            // узнаём с какой и по какую строку отображать информацию в таблицу
+            // другие строки будем скрывать
+            int numPage = Convert.ToInt32(l.Text) - 1;
+            int countRows = dataGridView1.Rows.Count;
+            int sizePage = 20;
+            int start = numPage * sizePage;
+            int stop = (countRows - start) >= sizePage ? start + sizePage : countRows;
+            dataGridView1.CurrentCell = null;
+            for (int j = 0; j < countRows; ++j)
+            {
+                if (j < start || j > stop)
+                {
+                    dataGridView1.Rows[j].Visible = false;
+                }
+                else
+                {
+                    dataGridView1.Rows[j].Visible = true;
+                }
             }
         }
     }

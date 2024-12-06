@@ -287,6 +287,12 @@
     <Content Include="photo\back.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="photo\delete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="photo\edit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="photo\icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

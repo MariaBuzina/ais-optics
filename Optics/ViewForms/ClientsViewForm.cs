@@ -51,16 +51,23 @@ namespace Optics
 
                         dataGridView1.Rows[0].Cells[0].Selected = false;
 
-                        DataGridViewButtonColumn buttonColumn1 = new DataGridViewButtonColumn();
-                        dataGridView1.Columns.Add(buttonColumn1);
-                        buttonColumn1.UseColumnTextForButtonValue = true;
-                        buttonColumn1.Text = "Изменить";
+                        DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+                        imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                        dataGridView1.Columns.Add(imageColumn);
+                        dataGridView1.AllowUserToAddRows = false;
 
-                        DataGridViewButtonColumn buttonColumn2 = new DataGridViewButtonColumn();
-                        dataGridView1.Columns.Add(buttonColumn2);
-                        buttonColumn2.UseColumnTextForButtonValue = true;
-                        buttonColumn2.Text = "Удалить";
+                        DataGridViewImageColumn imageColumn1 = new DataGridViewImageColumn();
+                        imageColumn1.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                        dataGridView1.Columns.Add(imageColumn1);
+                        dataGridView1.AllowUserToAddRows = false;
 
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            row.Cells[6].Value = Image.FromFile(@"./photo/edit.png");
+                            row.Cells[7].Value = Image.FromFile(@"./photo/delete.png");
+                        }
+
+                        dataGridView1.Columns["Телефон"].Width = 190;
                         foreach (DataGridViewColumn column in dataGridView1.Columns)
                         {
                             column.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -143,6 +150,25 @@ namespace Optics
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.Value != null)
+            {
+                string val = e.Value.ToString();
+
+                switch (dataGridView1.Columns[e.ColumnIndex].Name)
+                {
+                    case "Фамилия":
+                        e.Value = val[0];
+                        break;
+
+                    case "Телефон":
+                        e.Value = val.Substring(0, 13) + "**" + "-" + "**";
+                        break;
+                }
             }
         }
     }
