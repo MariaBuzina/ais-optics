@@ -310,6 +310,9 @@
     <Content Include="photo\logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="photo\settings.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="photo\up.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

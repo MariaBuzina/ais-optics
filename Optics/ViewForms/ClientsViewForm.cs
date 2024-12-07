@@ -193,7 +193,8 @@ namespace Optics
                         break;
 
                     case "Телефон":
-                        e.Value = val.Substring(0, 13) + "**" + "-" + "**";
+                        int len = val.Length;
+                        e.Value = val.Substring(0, 2) + "****" + val.Substring(len - 5);
                         break;
                 }
             }

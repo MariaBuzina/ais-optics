@@ -47,7 +47,7 @@ namespace Optics
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -76,7 +76,7 @@ namespace Optics
             this.textBox1.Location = new System.Drawing.Point(50, 12);
             this.textBox1.MaxLength = 100;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(859, 41);
+            this.textBox1.Size = new System.Drawing.Size(859, 34);
             this.textBox1.TabIndex = 15;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -89,7 +89,7 @@ namespace Optics
             "По убыванию"});
             this.comboBox1.Location = new System.Drawing.Point(219, 50);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(199, 43);
+            this.comboBox1.Size = new System.Drawing.Size(199, 36);
             this.comboBox1.TabIndex = 17;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -99,7 +99,7 @@ namespace Optics
             this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
             this.label1.Location = new System.Drawing.Point(613, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 35);
+            this.label1.Size = new System.Drawing.Size(94, 28);
             this.label1.TabIndex = 20;
             this.label1.Text = "Фильтры";
             // 
@@ -112,7 +112,7 @@ namespace Optics
             "По убыванию"});
             this.comboBox2.Location = new System.Drawing.Point(710, 52);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(199, 43);
+            this.comboBox2.Size = new System.Drawing.Size(199, 36);
             this.comboBox2.TabIndex = 21;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -125,7 +125,7 @@ namespace Optics
             "По убыванию"});
             this.comboBox3.Location = new System.Drawing.Point(14, 50);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(199, 43);
+            this.comboBox3.Size = new System.Drawing.Size(199, 36);
             this.comboBox3.TabIndex = 22;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
@@ -245,27 +245,29 @@ namespace Optics
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(425, 489);
+            this.label4.Location = new System.Drawing.Point(845, 440);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 35);
+            this.label4.Size = new System.Drawing.Size(64, 28);
             this.label4.TabIndex = 29;
             this.label4.Text = "30/50";
             // 
-            // panel1
+            // label5
             // 
-            this.panel1.Location = new System.Drawing.Point(709, 443);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 23);
-            this.panel1.TabIndex = 30;
+            this.label5.Location = new System.Drawing.Point(403, 492);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 28);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "30/50";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AddOrderProductForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 35F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(924, 540);
             this.ControlBox = false;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -313,7 +315,7 @@ namespace Optics
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label5;
     }
 }
 

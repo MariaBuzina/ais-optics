@@ -31,7 +31,17 @@ namespace Optics
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default["timeout"] = textBox1.Text;
+            MessageBox.Show("Время успешнео изменено!", "Сообщение пользователю", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            textBox1.Clear();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AuthorizationForm authorizationForm = new AuthorizationForm();
+            this.Visible = false;
+            authorizationForm.ShowDialog();
+            this.Close();
         }
     }
 }

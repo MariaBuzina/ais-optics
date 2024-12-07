@@ -16,7 +16,7 @@ namespace Optics
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ClientsViewForm());
+            Application.Run(new AuthorizationForm());
         }
     }
 }

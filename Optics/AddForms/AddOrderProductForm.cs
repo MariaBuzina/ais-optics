@@ -185,6 +185,7 @@ namespace Optics
         private void UpdatePagination()
         {
             label4.Text = $"{dataGridView1.Rows.Count}/{allRecords}";
+            label5.Text = $"{currentPage}/{allPages}";
             pictureBox2.Visible = currentPage < allPages;
         }
 
@@ -204,7 +205,7 @@ namespace Optics
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "Скидка")
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "ProductDiscountAmount")
             {
                 if (e.Value != null && decimal.TryParse(e.Value.ToString(), out decimal discount))
                 {
@@ -386,7 +387,7 @@ namespace Optics
 
             // узнаём с какой и по какую строку отображать информацию в таблицу
             // другие строки будем скрывать
-            int numPage = Convert.ToInt32(l.Text) - 1;
+            int numPage = currentPage;
             int countRows = dataGridView1.Rows.Count;
             int sizePage = 20;
             int start = numPage * sizePage;

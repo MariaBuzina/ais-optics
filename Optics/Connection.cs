@@ -8,6 +8,6 @@ namespace Optics
 {
     public static class Connection
     {
-       public static string conn = "host=localhost;uid=root;pwd=root;database=optics";
+       public static string conn = "host=localhost;uid=root;pwd=;database=optics";
     }
 }

@@ -145,5 +145,13 @@ namespace Optics
                 e.Handled = true;
             }
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            IdleTimeForm idleTimeForm = new IdleTimeForm();
+            this.Visible = false;
+            idleTimeForm.ShowDialog();
+            this.Close();
+        }
     }
 }
