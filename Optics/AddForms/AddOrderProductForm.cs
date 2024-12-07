@@ -387,23 +387,20 @@ namespace Optics
 
             // узнаём с какой и по какую строку отображать информацию в таблицу
             // другие строки будем скрывать
-            int numPage = currentPage;
-            int countRows = dataGridView1.Rows.Count;
-            int sizePage = 20;
-            int start = numPage * sizePage;
-            int stop = (countRows - start) >= sizePage ? start + sizePage : countRows;
-            dataGridView1.CurrentCell = null;
-            for (int j = 0; j < countRows; ++j)
+            int numPage = Convert.ToInt32(l.Text);
+            switch (numPage)
             {
-                if (j < start || j > stop)
-                {
-                    dataGridView1.Rows[j].Visible = false;
-                }
-                else
-                {
-                    dataGridView1.Rows[j].Visible = true;
-                }
+                case 1:
+                    currentPage = 1;
+                    break;
+                case 2:
+                    currentPage = 2;
+                    break;
+                case 3:
+                    currentPage = 3;
+                    break;
             }
+            FillDataGridView();
         }
     }
 }
